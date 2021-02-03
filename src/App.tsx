@@ -16,7 +16,7 @@ const TOTAL_QUESTIONS = 10;
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(1);
   const [userAnswers, setUserAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
@@ -69,12 +69,12 @@ const App: React.FC = () => {
         {loading ? <p>Loading Questions...</p> : null}
         {!loading && !gameOver && (
           <QuestionCard
-            // questionNr={number + 1}
-            // totalQuestions={TOTAL_QUESTIONS}
-            // question={questions[number].question}
-            // answers={questions[number].answers}
-            // userAnswer={userAnswers ? userAnswers[number] : undefined}
-            // callback={checkAnswer}
+            questionNr={number}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number].question}
+            answers={questions[number].answers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
           />
         )}
         {/* {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (
